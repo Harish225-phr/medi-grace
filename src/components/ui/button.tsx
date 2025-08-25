@@ -18,6 +18,13 @@ const buttonVariants = cva(
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
+        // Healthcare themed variants
+        medical: "bg-gradient-primary text-white hover:shadow-glow transition-all duration-300 transform hover:scale-105",
+        "medical-outline": "border-2 border-primary text-primary bg-transparent hover:bg-primary hover:text-white transition-all duration-300",
+        hero: "bg-white/10 backdrop-blur-sm text-white border border-white/20 hover:bg-white/20 hover:shadow-glow transition-all duration-300 transform hover:scale-105",
+        "hero-secondary": "bg-transparent text-white border-2 border-white hover:bg-white hover:text-primary transition-all duration-300 transform hover:scale-105",
+        wellness: "bg-gradient-secondary text-white hover:shadow-glow transition-all duration-300 transform hover:scale-105",
+        "wellness-outline": "border-2 border-secondary text-secondary bg-transparent hover:bg-secondary hover:text-white transition-all duration-300",
       },
       size: {
         default: "h-10 px-4 py-2",
