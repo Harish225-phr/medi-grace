@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 
@@ -14,11 +15,14 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const location = useLocation();
+  
   const navLinks = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Treatments", href: "#treatments" },
-    { name: "Contact Us", href: "#contact" }
+    { name: "Home", href: "/" },
+    { name: "About", href: "/about" },
+    { name: "Treatments", href: "/treatments" },
+    { name: "Blog", href: "/blog" },
+    { name: "Contact Us", href: "/contact" }
   ];
 
   return (
@@ -29,32 +33,40 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <a href="#home" className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+            <Link to="/" className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
               HealthCare+
-            </a>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.name}
-                  href={link.href}
-                  className="text-foreground hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 relative group"
+                  to={link.href}
+                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 relative group ${
+                    location.pathname === link.href 
+                      ? "text-primary" 
+                      : "text-foreground hover:text-primary"
+                  }`}
                 >
                   {link.name}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-                </a>
+                  <span className={`absolute bottom-0 left-0 h-0.5 bg-primary transition-all duration-300 ${
+                    location.pathname === link.href ? "w-full" : "w-0 group-hover:w-full"
+                  }`}></span>
+                </Link>
               ))}
             </div>
           </div>
 
           {/* CTA Button */}
           <div className="hidden md:flex">
-            <Button variant="medical" size="sm" className="animate-float">
-              Book Appointment
-            </Button>
+            <Link to="/contact">
+              <Button variant="medical" size="sm" className="animate-float">
+                Book Appointment
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -75,19 +87,25 @@ const Navbar = () => {
           <div className="md:hidden animate-fade-in">
             <div className="px-2 pt-2 pb-3 space-y-1 bg-background/95 backdrop-blur-lg rounded-lg mt-2 shadow-medium">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.name}
-                  href={link.href}
-                  className="text-foreground hover:text-primary block px-3 py-2 rounded-md text-base font-medium transition-colors duration-300"
+                  to={link.href}
+                  className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-300 ${
+                    location.pathname === link.href 
+                      ? "text-primary bg-primary/10" 
+                      : "text-foreground hover:text-primary"
+                  }`}
                   onClick={() => setIsOpen(false)}
                 >
                   {link.name}
-                </a>
+                </Link>
               ))}
               <div className="pt-2">
-                <Button variant="medical" size="sm" className="w-full">
-                  Book Appointment
-                </Button>
+                <Link to="/contact">
+                  <Button variant="medical" size="sm" className="w-full" onClick={() => setIsOpen(false)}>
+                    Book Appointment
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
