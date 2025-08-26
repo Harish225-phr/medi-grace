@@ -20,7 +20,7 @@ const Navbar = () => {
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
-    { name: "Treatments", href: "/treatments" },
+    { name: "Services", href: "/treatments" },
     { name: "Blog", href: "/blog" },
     { name: "Contact Us", href: "/contact" }
   ];
@@ -33,8 +33,8 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link to="/" className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-              HealthCare+
+            <Link to="/" className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent font-poppins">
+              GlowSkin
             </Link>
           </div>
 
@@ -63,8 +63,8 @@ const Navbar = () => {
           {/* CTA Button */}
           <div className="hidden md:flex">
             <Link to="/contact">
-              <Button variant="medical" size="sm" className="animate-float">
-                Book Appointment
+              <Button variant="default" size="sm" className="animate-float bg-gradient-primary hover:bg-gradient-primary/90 text-white font-medium">
+                Book Consultation
               </Button>
             </Link>
           </div>
@@ -102,8 +102,8 @@ const Navbar = () => {
               ))}
               <div className="pt-2">
                 <Link to="/contact">
-                  <Button variant="medical" size="sm" className="w-full" onClick={() => setIsOpen(false)}>
-                    Book Appointment
+                  <Button variant="default" size="sm" className="w-full bg-gradient-primary text-white" onClick={() => setIsOpen(false)}>
+                    Book Consultation
                   </Button>
                 </Link>
               </div>
