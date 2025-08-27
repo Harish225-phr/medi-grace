@@ -42,7 +42,7 @@ const TreatmentsSection = () => {
             </span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            We provide comprehensive healthcare services with cutting-edge technology and experienced medical professionals dedicated to your well-being and recovery.
+            We provide comprehensive findskin.doctor services with cutting-edge technology and experienced medical professionals dedicated to your well-being and recovery.
           </p>
         </div>
 

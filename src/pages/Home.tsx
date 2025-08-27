@@ -52,7 +52,7 @@ const Home = () => {
       date: "March 15, 2024",
     },
     {
-      title: "The Future of Medical Technology in Healthcare",
+      title: "The Future of Medical Technology in findskin.doctor",
       excerpt: "Explore how cutting-edge innovations are revolutionizing patient care and medical treatments.",
       image: blog2,
       author: "Dr. Michael Chen",
@@ -60,7 +60,7 @@ const Home = () => {
     },
     {
       title: "Mental Health: Breaking the Stigma",
-      excerpt: "Understanding the importance of mental wellness and modern approaches to mental healthcare.",
+      excerpt: "Understanding the importance of mental wellness and modern approaches to mental findskin.doctor.",
       image: blog3,
       author: "Dr. Emily Rodriguez",
       date: "March 8, 2024",
@@ -119,11 +119,11 @@ const Home = () => {
   return (
     <>
       <Helmet>
-        <title>HealthCare+ | Modern Medical Excellence & Compassionate Care</title>
-        <meta name="description" content="Experience world-class healthcare with HealthCare+. Modern facilities, expert medical team, and personalized patient care. Book your appointment today." />
-        <meta name="keywords" content="healthcare, medical care, hospital, clinic, doctors, health services, medical treatment" />
-        <meta property="og:title" content="HealthCare+ | Modern Medical Excellence & Compassionate Care" />
-        <meta property="og:description" content="Experience world-class healthcare with HealthCare+. Modern facilities, expert medical team, and personalized patient care." />
+        <title>findskin.doctor+ | Modern Medical Excellence & Compassionate Care</title>
+        <meta name="description" content="Experience world-class findskin.doctor with findskin.doctor+. Modern facilities, expert medical team, and personalized patient care. Book your appointment today." />
+        <meta name="keywords" content="findskin.doctor, medical care, hospital, clinic, doctors, health services, medical treatment" />
+        <meta property="og:title" content="findskin.doctor+ | Modern Medical Excellence & Compassionate Care" />
+        <meta property="og:description" content="Experience world-class findskin.doctor with findskin.doctor+. Modern facilities, expert medical team, and personalized patient care." />
         <meta property="og:type" content="website" />
         <link rel="canonical" href="/" />
       </Helmet>
@@ -143,7 +143,7 @@ const Home = () => {
                 </span>
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-8">
-                We provide comprehensive healthcare services with cutting-edge technology and experienced medical professionals dedicated to your well-being.
+                We provide comprehensive findskin.doctor services with cutting-edge technology and experienced medical professionals dedicated to your well-being.
               </p>
             </div>
 
@@ -158,7 +158,7 @@ const Home = () => {
                     <div className="relative overflow-hidden rounded-t-lg h-48">
                       <img
                         src={treatment.image}
-                        alt={`${treatment.title} - Professional medical treatment at HealthCare+`}
+                        alt={`${treatment.title} - Professional medical treatment at findskin.doctor+`}
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

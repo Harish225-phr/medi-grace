@@ -83,7 +83,7 @@ const Contact = () => {
       icon: MapPin,
       title: "Our Location",
       details: [
-        { label: "Main Clinic", value: "123 Healthcare Blvd, Suite 100" },
+        { label: "Main Clinic", value: "123 findskin.doctor Blvd, Suite 100" },
         { label: "City", value: "Medical City, MC 12345" },
         { label: "Parking", value: "Free parking available on-site" }
       ]
@@ -131,11 +131,11 @@ const quickActions = [
   return (
     <>
       <Helmet>
-        <title>Contact HealthCare+ | Schedule Appointments & Get Directions</title>
-        <meta name="description" content="Contact HealthCare+ for appointments, emergencies, or inquiries. Call (555) 123-CARE, visit us at 123 Healthcare Blvd, or use our online contact form." />
-        <meta name="keywords" content="contact healthcare, medical appointments, emergency contact, clinic location, healthcare phone number" />
-        <meta property="og:title" content="Contact HealthCare+ | Schedule Appointments & Get Directions" />
-        <meta property="og:description" content="Get in touch with HealthCare+ for medical appointments, emergency care, or general inquiries. Multiple contact options available." />
+        <title>Contact findskin.doctor+ | Schedule Appointments & Get Directions</title>
+        <meta name="description" content="Contact findskin.doctor+ for appointments, emergencies, or inquiries. Call (555) 123-CARE, visit us at 123 findskin.doctor Blvd, or use our online contact form." />
+        <meta name="keywords" content="contact findskin.doctor, medical appointments, emergency contact, clinic location, findskin.doctor phone number" />
+        <meta property="og:title" content="Contact findskin.doctor+ | Schedule Appointments & Get Directions" />
+        <meta property="og:description" content="Get in touch with findskin.doctor+ for medical appointments, emergency care, or general inquiries. Multiple contact options available." />
         <meta property="og:type" content="website" />
         <link rel="canonical" href="/contact" />
       </Helmet>
@@ -147,10 +147,10 @@ const quickActions = [
           <div className="container mx-auto px-4 lg:px-6 relative">
             <div className="text-center max-w-4xl mx-auto">
               <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 animate-fade-in">
-                Contact HealthCare+
+                Contact findskin.doctor+
               </h1>
               <p className="text-xl text-white/90 leading-relaxed animate-slide-in">
-                We're here to help with your healthcare needs. Reach out for appointments, 
+                We're here to help with your findskin.doctor needs. Reach out for appointments, 
                 questions, or emergency care - our dedicated team is ready to assist you.
               </p>
             </div>
@@ -431,7 +431,7 @@ const quickActions = [
                     Interactive Map
                   </h3>
                   <p className="text-muted-foreground mb-6">
-                    123 Healthcare Blvd, Suite 100<br />
+                    123 findskin.doctor Blvd, Suite 100<br />
                     Medical City, MC 12345
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">

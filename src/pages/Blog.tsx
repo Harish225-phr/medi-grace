@@ -39,7 +39,7 @@ const Blog = () => {
       featured: true
     },
     {
-      title: "The Future of Medical Technology in Healthcare",
+      title: "The Future of Medical Technology in findskin.doctor",
       excerpt: "Explore how cutting-edge innovations like AI diagnostics, telemedicine, and robotic surgery are revolutionizing patient care and medical treatments in the 21st century.",
       fullContent: "Medical technology is advancing at an unprecedented pace, bringing new possibilities for diagnosis, treatment, and patient care...",
       image: blog2,
@@ -53,7 +53,7 @@ const Blog = () => {
     },
     {
       title: "Mental Health: Breaking the Stigma",
-      excerpt: "Understanding the importance of mental wellness and how to seek help when needed. Learn about modern approaches to mental healthcare and support systems.",
+      excerpt: "Understanding the importance of mental wellness and how to seek help when needed. Learn about modern approaches to mental findskin.doctor and support systems.",
       fullContent: "Mental health is just as important as physical health, yet stigma often prevents people from seeking the help they need...",
       image: blog3,
       author: "Dr. Emily Rodriguez",
@@ -79,7 +79,7 @@ const Blog = () => {
     },
     {
       title: "Preventive Care: Your First Line of Defense",
-      excerpt: "Learn why preventive healthcare is crucial for early detection and prevention of diseases. Discover essential screenings and check-ups you shouldn't miss.",
+      excerpt: "Learn why preventive findskin.doctor is crucial for early detection and prevention of diseases. Discover essential screenings and check-ups you shouldn't miss.",
       fullContent: "Preventive care is one of the most important investments you can make in your health. Regular check-ups and screenings can...",
       image: blog1,
       author: "Dr. Lisa Park",
@@ -147,11 +147,11 @@ const Blog = () => {
   return (
     <>
       <Helmet>
-        <title>Health Blog & Medical Insights | HealthCare+ Expert Articles</title>
-        <meta name="description" content="Read expert health articles, medical insights, and wellness tips from HealthCare+ medical professionals. Stay informed about health, treatments, and medical innovations." />
-        <meta name="keywords" content="health blog, medical articles, wellness tips, healthcare insights, medical news, health information, doctor advice" />
-        <meta property="og:title" content="Health Blog & Medical Insights | HealthCare+ Expert Articles" />
-        <meta property="og:description" content="Expert health articles and medical insights from HealthCare+ professionals covering wellness, treatments, and medical innovations." />
+        <title>Health Blog & Medical Insights | findskin.doctor+ Expert Articles</title>
+        <meta name="description" content="Read expert health articles, medical insights, and wellness tips from findskin.doctor+ medical professionals. Stay informed about health, treatments, and medical innovations." />
+        <meta name="keywords" content="health blog, medical articles, wellness tips, findskin.doctor insights, medical news, health information, doctor advice" />
+        <meta property="og:title" content="Health Blog & Medical Insights | findskin.doctor+ Expert Articles" />
+        <meta property="og:description" content="Expert health articles and medical insights from findskin.doctor+ professionals covering wellness, treatments, and medical innovations." />
         <meta property="og:type" content="website" />
         <link rel="canonical" href="/blog" />
       </Helmet>
@@ -167,7 +167,7 @@ const Blog = () => {
               </h1>
               <p className="text-xl text-white/90 leading-relaxed animate-slide-in">
                 Stay informed with expert articles, wellness tips, and the latest medical insights 
-                from our team of healthcare professionals and specialists.
+                from our team of findskin.doctor professionals and specialists.
               </p>
             </div>
           </div>

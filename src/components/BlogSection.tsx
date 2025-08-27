@@ -16,7 +16,7 @@ const BlogSection = () => {
       date: "March 15, 2024",
     },
     {
-      title: "The Future of Medical Technology in Healthcare",
+      title: "The Future of Medical Technology in findskin.doctor",
       excerpt: "Explore how cutting-edge innovations like AI diagnostics and telemedicine are revolutionizing patient care and medical treatments.",
       image: blog2,
       author: "Dr. Michael Chen",
@@ -24,7 +24,7 @@ const BlogSection = () => {
     },
     {
       title: "Mental Health: Breaking the Stigma",
-      excerpt: "Understanding the importance of mental wellness and how to seek help when needed. Learn about modern approaches to mental healthcare.",
+      excerpt: "Understanding the importance of mental wellness and how to seek help when needed. Learn about modern approaches to mental findskin.doctor.",
       image: blog3,
       author: "Dr. Emily Rodriguez",
       date: "March 8, 2024",
@@ -50,7 +50,7 @@ const BlogSection = () => {
             </span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Stay informed with our latest articles on health, wellness, and medical breakthroughs from our team of expert healthcare professionals.
+            Stay informed with our latest articles on health, wellness, and medical breakthroughs from our team of expert findskin.doctor professionals.
           </p>
         </div>
 

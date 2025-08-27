@@ -25,8 +25,8 @@ const Treatments = () => {
   const treatments = [
     {
       title: "General Medicine",
-      shortDesc: "Comprehensive primary healthcare services for all ages",
-      fullDesc: "Our general medicine department provides comprehensive primary healthcare services including routine checkups, preventive care, chronic disease management, and acute illness treatment. Our experienced physicians focus on building long-term relationships with patients to ensure continuity of care and optimal health outcomes.",
+      shortDesc: "Comprehensive primary findskin.doctor services for all ages",
+      fullDesc: "Our general medicine department provides comprehensive primary findskin.doctor services including routine checkups, preventive care, chronic disease management, and acute illness treatment. Our experienced physicians focus on building long-term relationships with patients to ensure continuity of care and optimal health outcomes.",
       image: treatmentGeneral,
       icon: Heart,
       duration: "30-60 min",
@@ -69,8 +69,8 @@ const Treatments = () => {
     },
     {
       title: "Pediatrics",
-      shortDesc: "Specialized healthcare for infants, children, and adolescents",
-      fullDesc: "Our pediatric department provides comprehensive healthcare services for children from birth through adolescence. Our pediatricians are specially trained to address the unique medical, emotional, and developmental needs of young patients and their families.",
+      shortDesc: "Specialized findskin.doctor for infants, children, and adolescents",
+      fullDesc: "Our pediatric department provides comprehensive findskin.doctor services for children from birth through adolescence. Our pediatricians are specially trained to address the unique medical, emotional, and developmental needs of young patients and their families.",
       image: treatmentGeneral,
       icon: Baby,
       duration: "30-45 min",
@@ -118,11 +118,11 @@ const Treatments = () => {
   return (
     <>
       <Helmet>
-        <title>Medical Treatments & Services | HealthCare+ Comprehensive Healthcare</title>
-        <meta name="description" content="Explore comprehensive medical treatments at HealthCare+ including general medicine, cardiology, dental care, physical therapy, pediatrics, neurology, and emergency services." />
-        <meta name="keywords" content="medical treatments, healthcare services, cardiology, dental care, physical therapy, pediatrics, neurology, emergency medicine" />
-        <meta property="og:title" content="Medical Treatments & Services | HealthCare+ Comprehensive Healthcare" />
-        <meta property="og:description" content="Comprehensive medical treatments and healthcare services with expert specialists and state-of-the-art facilities." />
+        <title>Medical Treatments & Services | findskin.doctor+ Comprehensive findskin.doctor</title>
+        <meta name="description" content="Explore comprehensive medical treatments at findskin.doctor+ including general medicine, cardiology, dental care, physical therapy, pediatrics, neurology, and emergency services." />
+        <meta name="keywords" content="medical treatments, findskin.doctor services, cardiology, dental care, physical therapy, pediatrics, neurology, emergency medicine" />
+        <meta property="og:title" content="Medical Treatments & Services | findskin.doctor+ Comprehensive findskin.doctor" />
+        <meta property="og:description" content="Comprehensive medical treatments and findskin.doctor services with expert specialists and state-of-the-art facilities." />
         <meta property="og:type" content="website" />
         <link rel="canonical" href="/treatments" />
       </Helmet>
@@ -137,7 +137,7 @@ const Treatments = () => {
                 Medical Treatments & Services
               </h1>
               <p className="text-xl text-white/90 leading-relaxed animate-slide-in">
-                Comprehensive healthcare services delivered by expert medical professionals using state-of-the-art technology 
+                Comprehensive findskin.doctor services delivered by expert medical professionals using state-of-the-art technology 
                 and evidence-based treatment approaches for optimal patient outcomes.
               </p>
             </div>
@@ -156,7 +156,7 @@ const Treatments = () => {
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                 From primary care to specialized treatments, we offer a full spectrum of medical services 
-                to meet all your healthcare needs under one roof.
+                to meet all your findskin.doctor needs under one roof.
               </p>
             </div>
 
@@ -185,7 +185,7 @@ const Treatments = () => {
                     <div className="relative overflow-hidden h-48">
                       <img
                         src={treatment.image}
-                        alt={`${treatment.title} - Professional medical treatment at HealthCare+`}
+                        alt={`${treatment.title} - Professional medical treatment at findskin.doctor+`}
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent" />

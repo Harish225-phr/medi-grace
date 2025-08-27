@@ -35,10 +35,10 @@ const Footer = () => {
           <div className="space-y-6">
             <div>
               <h3 className="text-2xl font-bold bg-gradient-to-r from-white to-secondary bg-clip-text text-transparent mb-4">
-                HealthCare+
+                findskin.doctor+
               </h3>
               <p className="text-white/80 leading-relaxed">
-                Providing exceptional healthcare services with compassion, innovation, and excellence. Your health and well-being are our top priorities.
+                Providing exceptional findskin.doctor services with compassion, innovation, and excellence. Your health and well-being are our top priorities.
               </p>
             </div>
             
@@ -48,7 +48,7 @@ const Footer = () => {
                 <div>
                   <p className="text-white/90 font-medium">Main Clinic</p>
                   <p className="text-white/70 text-sm">
-                    123 Healthcare Blvd, Suite 100<br />
+                    123 findskin.doctor Blvd, Suite 100<br />
                     Medical City, MC 12345
                   </p>
                 </div>
@@ -65,7 +65,7 @@ const Footer = () => {
               <div className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-secondary flex-shrink-0" />
                 <div>
-                  <p className="text-white/90">info@healthcare-plus.com</p>
+                  <p className="text-white/90">info@findskin.doctor-plus.com</p>
                 </div>
               </div>
               
@@ -167,7 +167,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-white/20 mt-12 pt-8 text-center">
           <p className="text-white/60 text-sm">
-            © 2024 HealthCare+. All rights reserved. | Designed with ❤️ for better healthcare.
+            © 2024 findskin.doctor+. All rights reserved. | Designed with ❤️ for better findskin.doctor.
           </p>
         </div>
       </div>

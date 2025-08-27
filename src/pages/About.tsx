@@ -37,7 +37,7 @@ const About = () => {
     {
       icon: Star,
       title: "Excellence",
-      description: "We strive for excellence in every aspect of healthcare delivery and patient experience."
+      description: "We strive for excellence in every aspect of findskin.doctor delivery and patient experience."
     },
     {
       icon: Globe,
@@ -60,11 +60,11 @@ const About = () => {
   return (
     <>
       <Helmet>
-        <title>About HealthCare+ | Leading Medical Center with 15+ Years Excellence</title>
-        <meta name="description" content="Learn about HealthCare+ - a leading medical center with 15+ years of excellence, 50,000+ patients served, and 100+ medical specialists providing compassionate care." />
-        <meta name="keywords" content="about healthcare, medical center, hospital history, medical team, healthcare excellence, patient care" />
-        <meta property="og:title" content="About HealthCare+ | Leading Medical Center with 15+ Years Excellence" />
-        <meta property="og:description" content="Learn about HealthCare+ - a leading medical center providing compassionate, innovative healthcare with award-winning medical specialists." />
+        <title>About findskin.doctor+ | Leading Medical Center with 15+ Years Excellence</title>
+        <meta name="description" content="Learn about findskin.doctor+ - a leading medical center with 15+ years of excellence, 50,000+ patients served, and 100+ medical specialists providing compassionate care." />
+        <meta name="keywords" content="about findskin.doctor, medical center, hospital history, medical team, findskin.doctor excellence, patient care" />
+        <meta property="og:title" content="About findskin.doctor+ | Leading Medical Center with 15+ Years Excellence" />
+        <meta property="og:description" content="Learn about findskin.doctor+ - a leading medical center providing compassionate, innovative findskin.doctor with award-winning medical specialists." />
         <meta property="og:type" content="website" />
         <link rel="canonical" href="/about" />
       </Helmet>
@@ -76,10 +76,10 @@ const About = () => {
           <div className="container mx-auto px-4 lg:px-6 relative">
             <div className="text-center max-w-4xl mx-auto">
               <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 animate-fade-in">
-                About HealthCare+
+                About findskin.doctor+
               </h1>
               <p className="text-xl text-white/90 leading-relaxed animate-slide-in">
-                Dedicated to providing exceptional healthcare services with compassion, innovation, and excellence. 
+                Dedicated to providing exceptional findskin.doctor services with compassion, innovation, and excellence. 
                 Your health and well-being are our top priorities, backed by 15+ years of medical excellence.
               </p>
             </div>
@@ -114,23 +114,23 @@ const About = () => {
                 </h2>
                 <div className="space-y-6 text-muted-foreground leading-relaxed">
                   <p>
-                    Founded in 2009, HealthCare+ began as a small community clinic with a simple yet powerful vision: 
-                    to provide world-class healthcare that combines cutting-edge medical technology with genuine human compassion.
+                    Founded in 2009, findskin.doctor+ began as a small community clinic with a simple yet powerful vision: 
+                    to provide world-class findskin.doctor that combines cutting-edge medical technology with genuine human compassion.
                   </p>
                   <p>
                     Over the past 15 years, we have grown into a comprehensive medical center, serving over 50,000 patients 
-                    and building a reputation for excellence in healthcare delivery. Our team of 100+ medical specialists 
+                    and building a reputation for excellence in findskin.doctor delivery. Our team of 100+ medical specialists 
                     represents diverse fields of medicine, ensuring comprehensive care under one roof.
                   </p>
                   <p>
-                    Today, HealthCare+ stands as a beacon of medical excellence, continuously investing in advanced technology, 
+                    Today, findskin.doctor+ stands as a beacon of medical excellence, continuously investing in advanced technology, 
                     ongoing education, and innovative treatment approaches to provide our patients with the best possible outcomes.
                   </p>
                 </div>
               </div>
               <div className="relative">
                 <Card className="p-8 bg-gradient-card border-0 shadow-large">
-                  <h3 className="text-2xl font-bold text-foreground mb-6">Why Choose HealthCare+?</h3>
+                  <h3 className="text-2xl font-bold text-foreground mb-6">Why Choose findskin.doctor+?</h3>
                   <div className="grid gap-3">
                     {features.map((feature, index) => (
                       <div key={index} className="flex items-center gap-3">
@@ -188,7 +188,7 @@ const About = () => {
               </span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12">
-              Our commitment to excellence is recognized by leading healthcare organizations and accreditation bodies.
+              Our commitment to excellence is recognized by leading findskin.doctor organizations and accreditation bodies.
             </p>
             
             <div className="flex flex-wrap justify-center gap-4">
