@@ -65,18 +65,18 @@ const Contact = () => {
       icon: Phone,
       title: "Phone Numbers",
       details: [
-        { label: "Emergency Line", value: "(555) 911-HELP", highlight: true },
-        { label: "Appointments", value: "(555) 123-CARE" },
-        { label: "General Inquiries", value: "(555) 456-INFO" }
+        { label: "Emergency Line", value: "+91-827-877-1093", highlight: true },
+        { label: "Appointments", value: "+91-827-877-1094" },
+        { label: "General Inquiries", value: "+91-827-877-1095" }
       ]
     },
     {
       icon: Mail,
       title: "Email Addresses",
       details: [
-        { label: "General Information", value: "info@healthcare-plus.com" },
-        { label: "Appointments", value: "appointments@healthcare-plus.com" },
-        { label: "Billing", value: "billing@healthcare-plus.com" }
+        { label: "General Information", value: "findskindoctor@gmail.com" },
+        { label: "Appointments", value: "findskindoctor@gmail.com" },
+        { label: "Billing", value: "harish.rajjput@gmail.com" }
       ]
     },
     {
@@ -92,37 +92,41 @@ const Contact = () => {
       icon: Clock,
       title: "Operating Hours",
       details: [
-        { label: "Monday - Friday", value: "8:00 AM - 8:00 PM" },
-        { label: "Saturday", value: "9:00 AM - 5:00 PM" },
-        { label: "Sunday", value: "10:00 AM - 4:00 PM" },
+        { label: "Monday - Friday", value: "24/7 Available", highlight: true },
+        { label: "Saturday", value: "24/7 Available", highlight: true },
+        { label: "Sunday", value: "24/7 Available", highlight: true },
         { label: "Emergency", value: "24/7 Available", highlight: true }
       ]
     }
   ];
 
-  const quickActions = [
-    {
-      icon: Calendar,
-      title: "Schedule Appointment",
-      description: "Book your appointment online or call us",
-      action: "Book Now",
-      variant: "medical" as const
-    },
-    {
-      icon: MessageCircle,
-      title: "Live Chat Support",
-      description: "Get instant help from our support team",
-      action: "Start Chat",
-      variant: "medical-outline" as const
-    },
-    {
-      icon: Navigation,
-      title: "Get Directions",
-      description: "Find the best route to our clinic",
-      action: "Get Directions",
-      variant: "wellness-outline" as const
-    }
-  ];
+const quickActions = [
+  {
+    icon: Calendar,
+    title: "Schedule Appointment",
+    description: "Book your appointment online or call us",
+    action: "Book Now",
+    variant: "medical" as const,
+     link: "tel:+917589951677"
+  },
+  {
+    icon: MessageCircle,
+    title: "Live Chat Support",
+    description: "Get instant help from our support team",
+    action: "Start Chat",
+    variant: "medical-outline" as const,
+    link: "https://wa.me/917589951677" //
+  },
+  {
+    icon: Navigation,
+    title: "Get Directions",
+    description: "Find the best route to our tothe clinic",
+    action: "Get Directions",
+    variant: "wellness-outline" as const,
+    link: "https://www.google.com/maps?q=Your+Clinic+Location" // Google Maps location
+  }
+];
+
 
   return (
     <>
@@ -165,7 +169,7 @@ const Contact = () => {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
               {quickActions.map((action, index) => (
                 <Card key={index} className="text-center p-6 border-0 shadow-soft hover:shadow-large transition-all duration-300 bg-card group hover:-translate-y-2">
                   <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
@@ -177,9 +181,17 @@ const Contact = () => {
                   <p className="text-muted-foreground mb-6">
                     {action.description}
                   </p>
-                  <Button variant={action.variant} className="w-full">
-                    {action.action}
-                  </Button>
+                 <a
+  href={action.link}
+  target={action.link.startsWith("http") ? "_blank" : "_self"}
+  rel="noopener noreferrer"
+  className="w-full block"
+>
+  <Button variant={action.variant} className="w-full">
+    {action.action}
+  </Button>
+</a>
+
                 </Card>
               ))}
             </div>
@@ -375,7 +387,7 @@ const Contact = () => {
                     </p>
                     <Button variant="destructive" size="lg">
                       <Phone className="w-5 h-5 mr-2" />
-                      Emergency: (555) 911-HELP
+                      Emergency: +91-827-877-1093
                     </Button>
                   </CardContent>
                 </Card>
@@ -427,10 +439,12 @@ const Contact = () => {
                       <Navigation className="w-5 h-5 mr-2" />
                       Get Directions
                     </Button>
-                    <Button variant="medical-outline">
-                      <Phone className="w-5 h-5 mr-2" />
-                      Call for Directions
-                    </Button>
+                    <a href="tel:+917589951677" className="block">
+                      <Button variant="medical-outline">
+                        <Phone className="w-5 h-5 mr-2" />
+                        Call for Directions
+                      </Button>
+                    </a>
                   </div>
                 </div>
               </div>
