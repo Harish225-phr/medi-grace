@@ -172,14 +172,15 @@ const Home = () => {
                     <CardDescription className="text-muted-foreground mb-6 leading-relaxed">
                       {treatment.description}
                     </CardDescription>
-                    <Button 
-                      variant="medical-outline" 
-                      size="sm" 
-                      className="group/btn w-full"
-                    >
+                    <Link to="/treatments">
+                      <Button
+                        variant="medical-outline"
+                        size="sm"
+                        className="group/btn w-full"
+                      >
                       Learn More
                       <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
-                    </Button>
+                    </Button></Link>
                   </CardContent>
                 </Card>
               ))}
@@ -247,15 +248,16 @@ const Home = () => {
                     <CardDescription className="text-muted-foreground mb-6 leading-relaxed line-clamp-3">
                       {post.excerpt}
                     </CardDescription>
-                    
-                    <Button 
-                      variant="wellness-outline" 
-                      size="sm" 
-                      className="group/btn w-full"
-                    >
+
+                    <Link to="/blog">
+                      <Button
+                        variant="wellness-outline"
+                        size="sm"
+                        className="group/btn w-full"
+                      >
                       Read Article
                       <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
-                    </Button>
+                    </Button></Link>
                   </CardContent>
                 </Card>
               ))}
@@ -376,10 +378,12 @@ const Home = () => {
                         ))}
                       </div>
                       
-                      <Button variant="medical" className="w-full group/btn">
-                        Book Consultation
-                        <Award className="ml-2 w-4 h-4 transition-transform group-hover/btn:rotate-12" />
-                      </Button>
+                      <a href="tel:+917589951677" className="block mb-2">
+                        <Button variant="medical" className="w-full group/btn">
+                          Book Consultation
+                          <Award className="ml-2 w-4 h-4 transition-transform group-hover/btn:rotate-12" />
+                        </Button>
+                      </a>
                     </div>
                   </CardContent>
                 </Card>

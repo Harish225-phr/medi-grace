@@ -181,11 +181,12 @@ const Dermatologists = () => {
                           </Badge>
                         ))}
                       </div>
-                      
-                      <Button variant="medical" className="w-full group/btn">
-                        Book Consultation
-                        <Award className="ml-2 w-4 h-4 transition-transform group-hover/btn:rotate-12" />
-                      </Button>
+                      <a href="tel:+917589951677" className="block mb-2">
+                        <Button variant="medical" className="w-full group/btn">
+                          Book Consultation
+                          <Award className="ml-2 w-4 h-4 transition-transform group-hover/btn:rotate-12" />
+                        </Button>
+                      </a>
                     </div>
                   </CardContent>
                 </Card>

@@ -243,14 +243,15 @@ const Treatments = () => {
 
                     {/* CTA Buttons */}
                     <div className="flex gap-3">
-                      <Button 
-                        variant="medical" 
-                        size="sm" 
-                        className="flex-1 group/btn"
-                      >
+                      <a href="tel:+917589951677" className="block">
+                        <Button 
+                          variant="medical" 
+                          size="sm" 
+                          className="flex-1 group/btn"
+                        >
                         Book Appointment
                         <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
-                      </Button>
+                      </Button></a>
                       <Button 
                         variant="medical-outline" 
                         size="sm"
