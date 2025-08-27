@@ -70,13 +70,13 @@ const HeroCarousel = () => {
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Link to="/dermatologists">
-                    <Button size="lg" className="bg-gradient-primary hover:bg-gradient-primary/90 text-white font-medium animate-float group">
+                  <a href="tel:+917589951677">
+                  <Button size="lg" className="bg-gradient-primary hover:bg-gradient-primary/90 text-white font-medium animate-float group">
                       <Calendar className="mr-2 h-5 w-5" />
                       Book Consultation
                       <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                     </Button>
-                  </Link>
+                  </a>
                   <a href="tel:+917589951677">
                     <Button variant="outline" size="lg" className="border-primary text-primary hover:bg-primary/10 font-medium group">
                       <Sparkles className="mr-2 h-5 w-5" />
