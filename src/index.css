@@ -5,7 +5,11 @@
 /* Modern Skincare Design System - Fresh, soft, and gender-neutral colors.
 All colors MUST be HSL for consistency and theming.
 */
-
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+  
 @layer base {
   :root {
     /* Skincare Color Palette */
