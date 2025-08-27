@@ -63,11 +63,16 @@ const Navbar = () => {
 
           {/* CTA Button */}
           <div className="hidden md:flex">
-            <Link to="/contact">
-              <Button variant="default" size="sm" className="animate-float bg-gradient-primary hover:bg-gradient-primary/90 text-white font-medium">
-                Book Consultation
-              </Button>
-            </Link>
+            <a href="tel:+917589951677">
+  <Button 
+    variant="default" 
+    size="sm" 
+    className="animate-float bg-gradient-primary hover:bg-gradient-primary/90 text-white font-medium"
+  >
+    +91-758-995-1677
+  </Button>
+</a>
+
           </div>
 
           {/* Mobile menu button */}
