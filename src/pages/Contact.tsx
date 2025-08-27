@@ -76,7 +76,6 @@ const Contact = () => {
       details: [
         { label: "General Information", value: "findskindoctor@gmail.com" },
         { label: "Appointments", value: "findskindoctor@gmail.com" },
-        { label: "Billing", value: "harish.rajjput@gmail.com" }
       ]
     },
     {
@@ -385,10 +384,12 @@ const quickActions = [
                       For life-threatening emergencies, call 911 immediately. 
                       For urgent but non-life-threatening conditions, call our emergency line.
                     </p>
-                    <Button variant="destructive" size="lg">
-                      <Phone className="w-5 h-5 mr-2" />
-                      Emergency: +91-827-877-1093
-                    </Button>
+                    <a href="tel:+918278771093" className="block">
+                      <Button variant="destructive" size="lg">
+                        <Phone className="w-5 h-5 mr-2" />
+                        Emergency: +91-827-877-1093
+                      </Button>
+                    </a>
                   </CardContent>
                 </Card>
 

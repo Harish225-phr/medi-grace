@@ -3,21 +3,11 @@ import { Button } from "@/components/ui/button";
 
 const Footer = () => {
   const quickLinks = [
-    { name: "About Us", href: "#about" },
-    { name: "Our Services", href: "#treatments" },
-    { name: "Appointments", href: "#contact" },
-    { name: "Health Blog", href: "#blog" },
-    { name: "Contact", href: "#contact" },
-    { name: "Privacy Policy", href: "#" },
-  ];
-
-  const services = [
-    { name: "General Medicine", href: "#" },
-    { name: "Dental Care", href: "#" },
-    { name: "Cardiology", href: "#" },
-    { name: "Physical Therapy", href: "#" },
-    { name: "Emergency Care", href: "#" },
-    { name: "Pediatrics", href: "#" },
+    { name: "About Us", href: "/about" },
+    { name: "Our Services", href: "/treatments" },
+    { name: "Health Blog", href: "/blog" },
+    { name: "Contact", href: "/contact" },
+    { name: "Privacy Policy", href: "/privacy" },
   ];
 
   const socialLinks = [
@@ -42,43 +32,7 @@ const Footer = () => {
               </p>
             </div>
             
-            <div className="space-y-3">
-              <div className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-secondary mt-0.5 flex-shrink-0" />
-                <div>
-                  <p className="text-white/90 font-medium">Main Clinic</p>
-                  <p className="text-white/70 text-sm">
-                    123 findskin.doctor Blvd, Suite 100<br />
-                    Medical City, MC 12345
-                  </p>
-                </div>
-              </div>
-              
-              <div className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-secondary flex-shrink-0" />
-                <div>
-                  <p className="text-white/90 font-medium">Emergency: +91 8278771093</p>
-                  <p className="text-white/70 text-sm">Appointments: +91 75899 51677</p>
-                </div>
-              </div>
-              
-              <div className="flex items-center gap-3">
-                <Mail className="w-5 h-5 text-secondary flex-shrink-0" />
-                <div>
-                  <p className="text-white/90">info@findskindoctor@gmail.com</p>
-                </div>
-              </div>
-              
-              <div className="flex items-start gap-3">
-                <Clock className="w-5 h-5 text-secondary mt-0.5 flex-shrink-0" />
-                <div>
-                  <p className="text-white/90 font-medium">Hours</p>
-                  <p className="text-white/70 text-sm">
-                    Mon-Sun: 24/7<br />
-                  </p>
-                </div>
-              </div>
-            </div>
+          
           </div>
 
           {/* Quick Links */}
@@ -103,22 +57,44 @@ const Footer = () => {
 
           {/* Services */}
           <div>
-            <h4 className="text-lg font-semibold text-white mb-6">Our Services</h4>
-            <ul className="space-y-3">
-              {services.map((service) => (
-                <li key={service.name}>
-                  <a
-                    href={service.href}
-                    className="text-white/70 hover:text-secondary transition-colors duration-300 text-sm group"
-                  >
-                    <span className="relative">
-                      {service.name}
-                      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary transition-all duration-300 group-hover:w-full"></span>
-                    </span>
-                  </a>
-                </li>
-              ))}
-            </ul>
+            <h4 className="text-lg font-semibold text-white mb-6">Our Address</h4>
+             <div className="space-y-3">
+              <div className="flex items-start gap-3">
+                <MapPin className="w-5 h-5 text-secondary mt-0.5 flex-shrink-0" />
+                <div>
+                  <p className="text-white/90 font-medium">Main Clinic</p>
+                  <p className="text-white/70 text-sm">
+                    123 findskin.doctor Blvd, Suite 100<br />
+                    Medical City, MC 12345
+                  </p>
+                </div>
+              </div>
+              
+              <div className="flex items-center gap-3">
+                <Phone className="w-5 h-5 text-secondary flex-shrink-0" />
+                <div>
+                  <p className="text-white/90 font-medium">Emergency: +91 8278771093</p>
+                  <p className="text-white/70 text-sm">Appointments: +91 75899 51677</p>
+                </div>
+              </div>
+              
+              <div className="flex items-center gap-3">
+                <Mail className="w-5 h-5 text-secondary flex-shrink-0" />
+                <div>
+                  <p className="text-white/90">findskindoctor@gmail.com</p>
+                </div>
+              </div>
+              
+              <div className="flex items-start gap-3">
+                <Clock className="w-5 h-5 text-secondary mt-0.5 flex-shrink-0" />
+                <div>
+                  <p className="text-white/90 font-medium">Hours</p>
+                  <p className="text-white/70 text-sm">
+                    Mon-Sun: 24/7<br />
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Newsletter & Social */}
