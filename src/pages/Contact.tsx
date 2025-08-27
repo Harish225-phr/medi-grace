@@ -20,6 +20,7 @@ import {
   Headphones,
   Building2
 } from "lucide-react";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -437,6 +438,8 @@ const Contact = () => {
           </div>
         </section>
       </main>
+      
+      <WhatsAppButton />
     </>
   );
 };

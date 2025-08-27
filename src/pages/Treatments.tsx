@@ -15,6 +15,7 @@ import {
   Baby,
   Activity
 } from "lucide-react";
+import WhatsAppButton from "@/components/WhatsAppButton";
 import treatmentGeneral from "@/assets/treatment-general.jpg";
 import treatmentDental from "@/assets/treatment-dental.jpg";
 import treatmentCardio from "@/assets/treatment-cardio.jpg";
@@ -288,6 +289,8 @@ const Treatments = () => {
           </div>
         </section>
       </main>
+      
+      <WhatsAppButton />
     </>
   );
 };

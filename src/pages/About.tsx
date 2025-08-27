@@ -13,6 +13,7 @@ import {
   Building2,
   Globe
 } from "lucide-react";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 const About = () => {
   const stats = [
@@ -208,6 +209,8 @@ const About = () => {
           </div>
         </section>
       </main>
+      
+      <WhatsAppButton />
     </>
   );
 };

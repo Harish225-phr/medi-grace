@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowRight, User, Calendar } from "lucide-react";
 import HeroCarousel from "@/components/HeroCarousel";
+import TestimonialsMarquee from "@/components/TestimonialsMarquee";
+import WhatsAppButton from "@/components/WhatsAppButton";
 import treatmentGeneral from "@/assets/treatment-general.jpg";
 import treatmentDental from "@/assets/treatment-dental.jpg";
 import treatmentCardio from "@/assets/treatment-cardio.jpg";
@@ -153,13 +155,12 @@ const Home = () => {
           <div className="container mx-auto px-4 lg:px-6">
             <div className="text-center mb-16 animate-fade-in">
               <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-                Latest Health
-                <span className="bg-gradient-secondary bg-clip-text text-transparent ml-2">
-                  Insights
+                <span className="bg-gradient-secondary bg-clip-text text-transparent">
+                  Blog
                 </span>
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-8">
-                Stay informed with our latest articles on health, wellness, and medical breakthroughs from our expert healthcare team.
+                Stay updated with our latest skincare tips, beauty insights, and expert advice from our dermatology team.
               </p>
             </div>
 
@@ -224,7 +225,81 @@ const Home = () => {
             </div>
           </div>
         </section>
+
+        {/* About Preview Section */}
+        <section className="py-16 bg-gradient-to-br from-background to-primary/10">
+          <div className="container mx-auto px-4 lg:px-6 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              About <span className="bg-gradient-primary bg-clip-text text-transparent">GlowSkin</span>
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-8">
+              We are a premier skincare clinic dedicated to helping you achieve healthy, radiant skin. Our expert team combines cutting-edge technology with personalized care to deliver exceptional results for every client.
+            </p>
+            <Link to="/about">
+              <Button variant="medical-outline" size="lg">
+                View More
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
+          </div>
+        </section>
+
+        {/* Dermatologists Section */}
+        <section className="py-20 bg-gradient-to-br from-secondary/10 to-background">
+          <div className="container mx-auto px-4 lg:px-6">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+                Our Expert
+                <span className="bg-gradient-secondary bg-clip-text text-transparent ml-2">
+                  Dermatologists
+                </span>
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-8">
+                Meet our board-certified dermatologists who bring years of experience and expertise to provide you with the best skincare solutions.
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+              <div className="text-center p-6 bg-card rounded-xl shadow-soft hover:shadow-large transition-all duration-300 hover:-translate-y-2">
+                <div className="w-20 h-20 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl font-bold text-white">15+</span>
+                </div>
+                <h3 className="text-xl font-semibold text-foreground mb-2">Years Experience</h3>
+                <p className="text-muted-foreground">Average experience of our dermatologists</p>
+              </div>
+              
+              <div className="text-center p-6 bg-card rounded-xl shadow-soft hover:shadow-large transition-all duration-300 hover:-translate-y-2">
+                <div className="w-20 h-20 bg-gradient-secondary rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl font-bold text-white">6</span>
+                </div>
+                <h3 className="text-xl font-semibold text-foreground mb-2">Expert Doctors</h3>
+                <p className="text-muted-foreground">Board-certified dermatology specialists</p>
+              </div>
+              
+              <div className="text-center p-6 bg-card rounded-xl shadow-soft hover:shadow-large transition-all duration-300 hover:-translate-y-2">
+                <div className="w-20 h-20 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl font-bold text-white">1K+</span>
+                </div>
+                <h3 className="text-xl font-semibold text-foreground mb-2">Happy Clients</h3>
+                <p className="text-muted-foreground">Satisfied clients with amazing results</p>
+              </div>
+            </div>
+            
+            <div className="text-center">
+              <Link to="/dermatologists">
+                <Button variant="wellness" size="lg" className="animate-float">
+                  Meet Our Team
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </section>
+        
+        <TestimonialsMarquee />
       </main>
+      
+      <WhatsAppButton />
     </>
   );
 };

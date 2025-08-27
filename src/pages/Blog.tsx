@@ -14,6 +14,7 @@ import {
   TrendingUp,
   BookOpen
 } from "lucide-react";
+import WhatsAppButton from "@/components/WhatsAppButton";
 import blog1 from "@/assets/blog-1.jpg";
 import blog2 from "@/assets/blog-2.jpg";
 import blog3 from "@/assets/blog-3.jpg";
@@ -443,6 +444,8 @@ const Blog = () => {
           </div>
         </section>
       </main>
+      
+      <WhatsAppButton />
     </>
   );
 };
