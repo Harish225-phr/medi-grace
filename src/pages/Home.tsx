@@ -276,7 +276,7 @@ const Home = () => {
         <section className="py-16 bg-gradient-to-br from-background to-primary/10">
           <div className="container mx-auto px-4 lg:px-6 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              About <span className="bg-gradient-primary bg-clip-text text-transparent">GlowSkin</span>
+              About <span className="bg-gradient-primary bg-clip-text text-transparent">findskin.doctor</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-8">
               We are a premier skincare clinic dedicated to helping you achieve healthy, radiant skin. Our expert team combines cutting-edge technology with personalized care to deliver exceptional results for every client.
@@ -322,7 +322,7 @@ const Home = () => {
                     <div className="relative">
                       <img
                         src={doctor.image}
-                        alt={`${doctor.name} - ${doctor.specialty} at GlowSkin`}
+                        alt={`${doctor.name} - ${doctor.specialty} at findskin.doctor`}
                         className="w-full h-64 object-cover"
                       />
                       <div className="absolute top-4 right-4">

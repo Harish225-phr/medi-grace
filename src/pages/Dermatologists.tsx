@@ -90,8 +90,8 @@ const Dermatologists = () => {
   return (
     <>
       <Helmet>
-        <title>Our Expert Dermatologists | GlowSkin - Professional Skin Care Team</title>
-        <meta name="description" content="Meet our team of experienced dermatologists at GlowSkin. Board-certified specialists in medical, cosmetic, and surgical dermatology. Book your consultation today." />
+        <title>Our Expert Dermatologists | findskin.doctor - Professional Skin Care Team</title>
+        <meta name="description" content="Meet our team of experienced dermatologists at findskin.doctor. Board-certified specialists in medical, cosmetic, and surgical dermatology. Book your consultation today." />
         <meta name="keywords" content="dermatologists, skin doctors, dermatology specialists, skin care experts, cosmetic dermatology, medical dermatology" />
         <link rel="canonical" href="/dermatologists" />
       </Helmet>
@@ -128,7 +128,7 @@ const Dermatologists = () => {
                     <div className="relative">
                       <img
                         src={doctor.image}
-                        alt={`${doctor.name} - ${doctor.specialty} at GlowSkin`}
+                        alt={`${doctor.name} - ${doctor.specialty} at findskin.doctor`}
                         className="w-full h-64 object-cover"
                       />
                       <div className="absolute top-4 right-4">

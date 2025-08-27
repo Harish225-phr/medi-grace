@@ -35,7 +35,7 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link to="/" className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent font-poppins">
-              GlowSkin
+              findskin.doctor
             </Link>
           </div>
 

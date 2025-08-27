@@ -14,7 +14,7 @@ const TestimonialsMarquee = () => {
     },
     {
       name: "Emily Rodriguez",
-      text: "The acne treatment worked wonders. My confidence is back! Thank you GlowSkin.",
+      text: "The acne treatment worked wonders. My confidence is back! Thank you findskin.doctor.",
       rating: 5,
     },
     {
