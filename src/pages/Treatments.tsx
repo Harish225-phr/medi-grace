@@ -279,10 +279,10 @@ const Treatments = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button variant="destructive" size="lg">
-                  Emergency: (555) 911-HELP
+                  Emergency: +91 75899 51677
                 </Button>
                 <Button variant="outline" size="lg">
-                  General Appointments: (555) 123-CARE
+                  General Appointments: +91 75899 51677
                 </Button>
               </div>
             </div>

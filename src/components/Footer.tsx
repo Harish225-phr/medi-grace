@@ -57,15 +57,15 @@ const Footer = () => {
               <div className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-secondary flex-shrink-0" />
                 <div>
-                  <p className="text-white/90 font-medium">Emergency: (555) 911-HELP</p>
-                  <p className="text-white/70 text-sm">Appointments: (555) 123-CARE</p>
+                  <p className="text-white/90 font-medium">Emergency: +91 8278771093</p>
+                  <p className="text-white/70 text-sm">Appointments: +91 75899 51677</p>
                 </div>
               </div>
               
               <div className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-secondary flex-shrink-0" />
                 <div>
-                  <p className="text-white/90">info@findskin.doctor-plus.com</p>
+                  <p className="text-white/90">info@findskindoctor@gmail.com</p>
                 </div>
               </div>
               
@@ -74,8 +74,7 @@ const Footer = () => {
                 <div>
                   <p className="text-white/90 font-medium">Hours</p>
                   <p className="text-white/70 text-sm">
-                    Mon-Fri: 8:00 AM - 8:00 PM<br />
-                    Sat-Sun: 9:00 AM - 5:00 PM
+                    Mon-Sun: 24/7<br />
                   </p>
                 </div>
               </div>
@@ -167,7 +166,17 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-white/20 mt-12 pt-8 text-center">
           <p className="text-white/60 text-sm">
-            © 2024 findskin.doctor+. All rights reserved. | Designed with ❤️ for better findskin.doctor.
+<footer className="text-center text-sm text-white-500 py-4">
+  © 2024 findskin.doctor+. All rights reserved. |  Designed & Developed with  by{" "}
+  <a
+    href="https://harishrajput.netlify.app/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-white-500 hover:underline"
+  >
+    Harish.Rajput
+  </a>
+</footer>
           </p>
         </div>
       </div>
