@@ -1,15 +1,18 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, ArrowRight, Sparkles, Calendar } from "lucide-react";
-import { Link } from "react-router-dom";
 import skincareHero1 from "@/assets/skincare-hero-1.jpg";
 import skincareHero2 from "@/assets/skincare-hero-2.jpg";
 import skincareHero3 from "@/assets/skincare-hero-3.jpg";
 import skincareHero4 from "@/assets/skincare-hero-4.jpg";
+import useWordpressPage from "../hooks/useWordpressPage"; 
 
-const HeroCarousel = () => {
+type BannerProps = {
+  pageId: number;
+};
+
+const Banner = ({ pageId }: BannerProps) => {
   const [currentSlide, setCurrentSlide] = useState(0);
-
   const slides = [
     {
       image: skincareHero1,
@@ -44,6 +47,11 @@ const HeroCarousel = () => {
   const goToPrevious = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
   const goToNext = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
 
+  const { page, loading, error } = useWordpressPage(pageId);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error loading page.</p>;
+
   return (
     <section className="relative h-screen overflow-hidden">
       {slides.map((slide, index) => (
@@ -62,13 +70,9 @@ const HeroCarousel = () => {
           <div className="relative z-10 flex items-center h-full">
             <div className="container mx-auto px-4 lg:px-6">
               <div className="max-w-2xl animate-fade-in">
-                <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-6 leading-tight font-poppins">
-                  {slide.title}
-                </h1>
-                <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed">
-                  {slide.subtitle}
-                </p>
-                
+                <h1 dangerouslySetInnerHTML={{ __html: page?.acf?.banner_heading }} className="text-5xl md:text-7xl font-bold text-foreground mb-6 leading-tight font-poppins" />
+                <p dangerouslySetInnerHTML={{ __html: page?.acf?.banner_description }} className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed" />
+
                 <div className="flex flex-col sm:flex-row gap-4">
                   <a href="tel:+917589951677">
                   <Button size="lg" className="bg-gradient-primary hover:bg-gradient-primary/90 text-white font-medium animate-float group">
@@ -124,4 +128,4 @@ const HeroCarousel = () => {
   );
 };
 
-export default HeroCarousel;
+export default Banner;

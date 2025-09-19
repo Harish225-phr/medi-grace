@@ -18,5 +18,5 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  // base: "/wp-content/themes/react-theme/", // 👈 important for WordPress
+  base: "/wp-content/themes/react-theme/", 
 }));

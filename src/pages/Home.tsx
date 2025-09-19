@@ -130,7 +130,7 @@ const Home = () => {
 
       <main>
         {/* Hero Section */}
-        <HeroCarousel />
+        <HeroCarousel pageId={2466}/>
 
         {/* Treatments Preview Section */}
         <section className="py-20 bg-gradient-to-br from-background to-accent/30">
