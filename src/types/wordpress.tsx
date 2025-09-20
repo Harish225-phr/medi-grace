@@ -39,6 +39,16 @@ export type Dermatologist = {
   education?: string;
 };
 
+export type Review = {
+  name: string;
+  text: string;
+  rating: number;
+};
+
+export type BannerImage = {
+  image: string;
+};
+
 export type WPPage = {
   id: number;
   title: { rendered: string };
@@ -46,12 +56,14 @@ export type WPPage = {
   acf?: {
     banner_heading?: string;
     banner_description?: string;
+    banner_img?: string; // JSON string containing BannerImage[]
     services_description?: string;
     treatments_json?: Treatment[];
     blog_description?: string;
     blog_json?: BlogPost[];
     dermatologists_json?: Dermatologist[];
     dermatologists_des?: string;
+    review_json?: Review[];
     // yahan baaki fields add karte ja jab banaye
   };
 };

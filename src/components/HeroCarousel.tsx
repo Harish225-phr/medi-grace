@@ -5,7 +5,8 @@ import skincareHero1 from "@/assets/skincare-hero-1.jpg";
 import skincareHero2 from "@/assets/skincare-hero-2.jpg";
 import skincareHero3 from "@/assets/skincare-hero-3.jpg";
 import skincareHero4 from "@/assets/skincare-hero-4.jpg";
-import useWordpressPage from "../hooks/useWordpressPage"; 
+import useWordpressPage from "../hooks/useWordpressPage";
+import { BannerImage } from "@/types/wordpress"; 
 
 type BannerProps = {
   pageId: number;
@@ -13,7 +14,9 @@ type BannerProps = {
 
 const Banner = ({ pageId }: BannerProps) => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const slides = [
+  
+  // Fallback slides if API data is not available
+  const fallbackSlides = [
     {
       image: skincareHero1,
       title: "Glow Naturally, Care Confidently",
@@ -36,6 +39,27 @@ const Banner = ({ pageId }: BannerProps) => {
     },
   ];
 
+  const { page, loading, error } = useWordpressPage(pageId);
+  
+  // Parse banner images from WordPress API
+  let bannerImages: BannerImage[] = [];
+  try {
+    if (page?.acf?.banner_img) {
+      bannerImages = JSON.parse(page.acf.banner_img);
+    }
+  } catch (e) {
+    console.error('Error parsing banner images:', e);
+  }
+
+  // Use dynamic slides if available, otherwise use fallback
+  const slides = bannerImages.length > 0 
+    ? bannerImages.map((banner, index) => ({
+        image: banner.image,
+        title: fallbackSlides[index]?.title || "Glow Naturally, Care Confidently",
+        subtitle: fallbackSlides[index]?.subtitle || "Discover your skin's true potential with our personalized skincare treatments.",
+      }))
+    : fallbackSlides;
+
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
@@ -46,8 +70,6 @@ const Banner = ({ pageId }: BannerProps) => {
   const goToSlide = (index: number) => setCurrentSlide(index);
   const goToPrevious = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
   const goToNext = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
-
-  const { page, loading, error } = useWordpressPage(pageId);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error loading page.</p>;

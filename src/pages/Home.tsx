@@ -48,43 +48,24 @@ const Home = () => {
         {/* Hero Section */}
         <HeroCarousel pageId={2466}/>
 
-        {/* Treatments Preview Section */}
-        <section className="py-20 bg-gradient-to-br from-background to-accent/30">
-          <div className="container mx-auto px-4 lg:px-6">
-            <div className="text-center mb-16 animate-fade-in">
-              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-                Our Medical
-                <span className="bg-gradient-primary bg-clip-text text-transparent ml-2">
-                  Treatments
-                </span>
-              </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-8">
-                {page?.acf?.services_description || "We provide comprehensive findskin.doctor services with cutting-edge technology and experienced medical professionals dedicated to your well-being."}
-              </p>
-            </div>
+        {/* Treatments Preview Section - Only show if API data available */}
+        {!treatmentsLoading && Array.isArray(featuredTreatments) && featuredTreatments.length > 0 && (
+          <section className="py-20 bg-gradient-to-br from-background to-accent/30">
+            <div className="container mx-auto px-4 lg:px-6">
+              <div className="text-center mb-16 animate-fade-in">
+                <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+                  Our Medical
+                  <span className="bg-gradient-primary bg-clip-text text-transparent ml-2">
+                    Treatments
+                  </span>
+                </h2>
+                <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-8">
+                  {page?.acf?.services_description || "We provide comprehensive findskin.doctor services with cutting-edge technology and experienced medical professionals dedicated to your well-being."}
+                </p>
+              </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-              {treatmentsLoading ? (
-                // Loading skeleton
-                Array(4).fill(0).map((_, index) => (
-                  <Card
-                    key={index}
-                    className="animate-pulse bg-gradient-card border-0 shadow-soft"
-                  >
-                    <CardHeader className="p-0">
-                      <div className="h-48 bg-gray-300 rounded-t-lg"></div>
-                    </CardHeader>
-                    <CardContent className="p-6">
-                      <div className="h-6 bg-gray-300 rounded mb-3"></div>
-                      <div className="h-4 bg-gray-300 rounded mb-2"></div>
-                      <div className="h-4 bg-gray-300 rounded mb-4"></div>
-                      <div className="h-8 bg-gray-300 rounded"></div>
-                    </CardContent>
-                  </Card>
-                ))
-              ) : (
-                Array.isArray(featuredTreatments) && featuredTreatments.length > 0 ? 
-                featuredTreatments.map((treatment, index) => (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                {featuredTreatments.map((treatment, index) => (
                   <Card
                     key={index}
                     className="group bg-gradient-card border-0 shadow-soft hover:shadow-large transition-all duration-500 hover:-translate-y-2 animate-scale-in"
@@ -119,61 +100,38 @@ const Home = () => {
                       </Button></Link>
                     </CardContent>
                   </Card>
-                )) : (
-                  <div className="col-span-full text-center py-8">
-                    <p className="text-muted-foreground">No treatments available</p>
-                  </div>
-                )
-              )}
-            </div>
+                ))}
+              </div>
 
-            <div className="text-center">
-              <Link to="/treatments">
-                <Button variant="medical" size="lg" className="animate-float">
-                  View All Treatments
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </Link>
+              <div className="text-center">
+                <Link to="/treatments">
+                  <Button variant="medical" size="lg" className="animate-float">
+                    View All Treatments
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </Link>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
 
-        {/* Blog Preview Section */}
-        <section className="py-20 bg-gradient-to-br from-accent/20 to-background">
-          <div className="container mx-auto px-4 lg:px-6">
-            <div className="text-center mb-16 animate-fade-in">
-              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-                <span className="bg-gradient-secondary bg-clip-text text-transparent">
-                  Blog
-                </span>
-              </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-8">
-                {page?.acf?.blog_description || "Stay updated with our latest skincare tips, beauty insights, and expert advice from our dermatology team."}
-              </p>
-            </div>
+        {/* Blog Preview Section - Only show if API data available */}
+        {!blogsLoading && Array.isArray(featuredBlogs) && featuredBlogs.length > 0 && (
+          <section className="py-20 bg-gradient-to-br from-accent/20 to-background">
+            <div className="container mx-auto px-4 lg:px-6">
+              <div className="text-center mb-16 animate-fade-in">
+                <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+                  <span className="bg-gradient-secondary bg-clip-text text-transparent">
+                    Blog
+                  </span>
+                </h2>
+                <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-8">
+                  {page?.acf?.blog_description || "Stay updated with our latest skincare tips, beauty insights, and expert advice from our dermatology team."}
+                </p>
+              </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-              {blogsLoading ? (
-                // Loading skeleton
-                Array(4).fill(0).map((_, index) => (
-                  <Card
-                    key={index}
-                    className="animate-pulse bg-card border-0 shadow-soft"
-                  >
-                    <CardHeader className="p-0">
-                      <div className="h-48 bg-gray-300 rounded-t-lg"></div>
-                    </CardHeader>
-                    <CardContent className="p-6">
-                      <div className="h-6 bg-gray-300 rounded mb-3"></div>
-                      <div className="h-4 bg-gray-300 rounded mb-2"></div>
-                      <div className="h-4 bg-gray-300 rounded mb-4"></div>
-                      <div className="h-8 bg-gray-300 rounded"></div>
-                    </CardContent>
-                  </Card>
-                ))
-              ) : (
-                Array.isArray(featuredBlogs) && featuredBlogs.length > 0 ?
-                featuredBlogs.map((post, index) => (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                {featuredBlogs.map((post, index) => (
                   <Card
                     key={index}
                     className="group bg-card border-0 shadow-soft hover:shadow-large transition-all duration-500 hover:-translate-y-2 animate-scale-in overflow-hidden"
@@ -221,24 +179,20 @@ const Home = () => {
                       </Button></Link>
                     </CardContent>
                   </Card>
-                )) : (
-                  <div className="col-span-full text-center py-8">
-                    <p className="text-muted-foreground">No blog posts available</p>
-                  </div>
-                )
-              )}
-            </div>
+                ))}
+              </div>
 
-            <div className="text-center">
-              <Link to="/blog">
-                <Button variant="wellness" size="lg" className="animate-float">
-                  View All Articles
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </Link>
+              <div className="text-center">
+                <Link to="/blog">
+                  <Button variant="wellness" size="lg" className="animate-float">
+                    View All Articles
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </Link>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
 
         {/* About Preview Section */}
         <section className="py-16 bg-gradient-to-br from-background to-primary/10">
@@ -260,47 +214,25 @@ const Home = () => {
 
    
 
-        {/* Dermatologists Section */}
-        <section className="py-20 bg-gradient-to-br from-secondary/10 to-background">
-          <div className="container mx-auto px-4 lg:px-6">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-                Our Expert
-                <span className="bg-gradient-secondary bg-clip-text text-transparent ml-2">
-                  Dermatologists
-                </span>
-              </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-8">
-                {page?.acf?.dermatologists_des || "Meet our board-certified dermatologists who bring years of experience and expertise to provide you with the best skincare solutions."}
-              </p>
-            </div>
-            
-
-     {/* Doctor Grid */}
-         <section className="py-20">
-          <div className="container mx-auto px-4 lg:px-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {dermatologistsLoading ? (
-                // Loading skeleton
-                Array(3).fill(0).map((_, index) => (
-                  <Card
-                    key={index}
-                    className="animate-pulse bg-card border-0 shadow-soft"
-                  >
-                    <CardContent className="p-0">
-                      <div className="h-64 bg-gray-300 rounded-t-lg"></div>
-                      <div className="p-6">
-                        <div className="h-6 bg-gray-300 rounded mb-3"></div>
-                        <div className="h-4 bg-gray-300 rounded mb-2"></div>
-                        <div className="h-4 bg-gray-300 rounded mb-4"></div>
-                        <div className="h-8 bg-gray-300 rounded"></div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))
-              ) : (
-                Array.isArray(featuredDermatologists) && featuredDermatologists.length > 0 ?
-                featuredDermatologists.map((doctor, index) => (
+        {/* Dermatologists Section - Only show if API data available */}
+        {!dermatologistsLoading && Array.isArray(featuredDermatologists) && featuredDermatologists.length > 0 && (
+          <section className="py-20 bg-gradient-to-br from-secondary/10 to-background">
+            <div className="container mx-auto px-4 lg:px-6">
+              <div className="text-center mb-16">
+                <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+                  Our Expert
+                  <span className="bg-gradient-secondary bg-clip-text text-transparent ml-2">
+                    Dermatologists
+                  </span>
+                </h2>
+                <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-8">
+                  {page?.acf?.dermatologists_des || "Meet our board-certified dermatologists who bring years of experience and expertise to provide you with the best skincare solutions."}
+                </p>
+              </div>
+              
+              {/* Doctor Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {featuredDermatologists.map((doctor, index) => (
                   <Card
                     key={index}
                     className="group bg-card border-0 shadow-soft hover:shadow-large transition-all duration-500 hover:-translate-y-2 animate-scale-in overflow-hidden"
@@ -373,26 +305,20 @@ const Home = () => {
                       </div>
                     </CardContent>
                   </Card>
-                )) : (
-                  <div className="col-span-full text-center py-8">
-                    <p className="text-muted-foreground">No dermatologists available</p>
-                  </div>
-                )
-              )}
-            </div>
-          </div>
-        </section>
+                ))}
+              </div>
 
-           <div className="text-center">
-              <Link to="/dermatologists">
-                <Button variant="wellness" size="lg" className="animate-float">
-                  Meet Our Team
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </Link>
+              <div className="text-center mt-12">
+                <Link to="/dermatologists">
+                  <Button variant="wellness" size="lg" className="animate-float">
+                    Meet Our Team
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </Link>
+              </div>
             </div>
-               </div>
-        </section>
+          </section>
+        )}
 
 
  <div className="text-center mb-16">
