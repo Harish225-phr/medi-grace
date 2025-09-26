@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Treatments from "./pages/Treatments";
 import Blog from "./pages/Blog";
+import BlogDetail from "./pages/BlogDetail";
 import Contact from "./pages/Contact";
 import Dermatologists from "./pages/Dermatologists";
 import NotFound from "./pages/NotFound";
@@ -29,6 +30,7 @@ const App = () => (
             <Route path="/about" element={<About />} />
             <Route path="/treatments" element={<Treatments />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:postId" element={<BlogDetail />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/dermatologists" element={<Dermatologists />} />
             <Route path="*" element={<NotFound />} />

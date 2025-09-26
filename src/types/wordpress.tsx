@@ -2,6 +2,7 @@ export type Treatment = {
   title: string;
   description: string;
   image: string;
+  post_id?: number;
   shortDesc?: string;
   fullDesc?: string;
   icon?: string;
@@ -16,6 +17,7 @@ export type BlogPost = {
   excerpt: string;
   image: string;
   author: string;
+  post_id?: number;
   date?: string;
   authorRole?: string;
   readTime?: string;

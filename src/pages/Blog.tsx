@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -23,8 +24,21 @@ import blog3 from "@/assets/blog-3.jpg";
 import blog4 from "@/assets/blog-4.jpg";
 
 const Blog = () => {
+  const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
+
+  // JSON array of blog blocks - replace this with your actual data source
+  const blogBlocks = [
+    {
+      post_id: 43,
+      title: "10 Essential Tips for a Healthier Lifestyle",
+      excerpt: "Discover simple yet effective ways to improve your daily health habits, from nutrition choices to exercise routines that can transform your well-being and boost your energy levels.",
+      image: "https://findskin.doctor/wp-content/uploads/2025/07/lady-dermatologist-in-Chandigarh.jpg",
+      author: "Dr. Sarah Johnson"
+    }
+    // Add more blog blocks here with their actual post_id values
+  ];
 
   // Fetch blog posts dynamically (no limit for blog page)
   const { blogPosts = [], loading: blogsLoading } = useBlogPosts(2466);
@@ -44,21 +58,38 @@ const Blog = () => {
     blog4
   };
 
-  // Process blog posts to add proper image URLs and fallback data
-  const processedBlogPosts = blogPosts.map(post => ({
-    ...post,
-    // Use the image directly if it's a complete URL, otherwise try mapping, then fallback
-    image: post.image && (post.image.startsWith('http') || post.image.startsWith('/')) 
-           ? post.image 
-           : imageMap[post.image] || blog1,
-    date: post.date || "Recent",
-    authorRole: post.authorRole || "Medical Professional",
-    readTime: post.readTime || "5 min read",
-    category: post.category || "Health",
-    tags: post.tags || ["Health"],
-    featured: post.featured || false,
-    fullContent: post.fullContent || post.excerpt
-  }));
+  // Process blog posts to combine API data with blog blocks
+  const processedBlogPosts = [
+    // Use blogBlocks as primary source, fallback to API data
+    ...blogBlocks.map(block => ({
+      ...block,
+      post_id: block.post_id,
+      image: block.image,
+      date: "Recent",
+      authorRole: "Medical Professional",
+      readTime: "5 min read",
+      category: "Health",
+      tags: ["Health"],
+      featured: false,
+      fullContent: block.excerpt
+    })),
+    // Add any additional blog posts from API that don't have post_id conflicts
+    ...blogPosts.filter(post => !blogBlocks.some(block => block.post_id === post.post_id)).map(post => ({
+      ...post,
+      post_id: post.post_id || Math.random(), // fallback for posts without post_id
+      // Use the image directly if it's a complete URL, otherwise try mapping, then fallback
+      image: post.image && (post.image.startsWith('http') || post.image.startsWith('/')) 
+             ? post.image 
+             : imageMap[post.image] || blog1,
+      date: post.date || "Recent",
+      authorRole: post.authorRole || "Medical Professional",
+      readTime: post.readTime || "5 min read",
+      category: post.category || "Health",
+      tags: post.tags || ["Health"],
+      featured: post.featured || false,
+      fullContent: post.fullContent || post.excerpt
+    }))
+  ];
 
   // Extract unique categories from processed blog posts
   const categories = ["All", ...Array.from(new Set(processedBlogPosts.map(post => post.category)))];
@@ -221,8 +252,9 @@ const Blog = () => {
                       <Button 
                         variant="medical" 
                         className="group/btn w-full"
+                        onClick={() => navigate(`/blog/${post.post_id}`)}
                       >
-                        Read Full Article
+                        Learn More
                         <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
                       </Button>
                     </CardContent>
@@ -334,8 +366,9 @@ const Blog = () => {
                         variant="wellness-outline" 
                         size="sm" 
                         className="group/btn w-full"
+                        onClick={() => navigate(`/blog/${post.post_id}`)}
                       >
-                        Read Article
+                        Learn More
                         <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
                       </Button>
                     </CardContent>
