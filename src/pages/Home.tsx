@@ -35,7 +35,7 @@ const Home = () => {
   return (
     <>
       <Helmet>
-        <title>findskin.doctor+ | Modern Medical Excellence & Compassionate Care</title>
+        <title>Find the Best Dermatologist in Chandigarh, Zirakpur, Mohali & Panchkula – Advanced Skin Treatments</title>
         <meta name="description" content="Experience world-class findskin.doctor with findskin.doctor+. Modern facilities, expert medical team, and personalized patient care. Book your appointment today." />
         <meta name="keywords" content="findskin.doctor, medical care, hospital, clinic, doctors, health services, medical treatment" />
         <meta property="og:title" content="findskin.doctor+ | Modern Medical Excellence & Compassionate Care" />
