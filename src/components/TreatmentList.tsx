@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
+import { Treatment, TreatmentListProps } from "@/types/treatment";
 import { 
   ArrowRight, 
   Search,
@@ -14,20 +15,7 @@ import {
   Shield
 } from "lucide-react";
 
-interface Treatment {
-  post_id: number;
-  title: string;
-  description: string;
-  image: string;
-  category?: string;
-  duration?: string;
-  specialists?: string;
-}
 
-interface TreatmentListProps {
-  treatments?: Treatment[];
-  loading?: boolean;
-}
 
 const TreatmentList = ({ treatments = [], loading = false }: TreatmentListProps) => {
   const navigate = useNavigate();
@@ -41,8 +29,7 @@ const TreatmentList = ({ treatments = [], loading = false }: TreatmentListProps)
   const processedTreatments = treatmentsList.map(treatment => ({
     ...treatment,
     category: treatment.category || "Medical Care",
-    duration: treatment.duration || "30-60 min",
-    specialists: treatment.specialists || "Expert Team"
+    duration: treatment.duration || "30-60 min"
   }));
 
   // Extract unique categories
@@ -51,7 +38,7 @@ const TreatmentList = ({ treatments = [], loading = false }: TreatmentListProps)
   // Filter treatments based on search and category
   const filteredTreatments = processedTreatments.filter(treatment => {
     const matchesSearch = treatment.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         treatment.description.toLowerCase().includes(searchTerm.toLowerCase());
+                         treatment.excerpt.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesCategory = selectedCategory === "All" || treatment.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });
@@ -170,7 +157,7 @@ const TreatmentList = ({ treatments = [], loading = false }: TreatmentListProps)
                     </CardTitle>
                     
                     <CardDescription className="text-muted-foreground mb-6 leading-relaxed line-clamp-3">
-                      {treatment.description}
+                      {treatment.excerpt}
                     </CardDescription>
 
                     {/* Treatment Info */}
@@ -181,7 +168,7 @@ const TreatmentList = ({ treatments = [], loading = false }: TreatmentListProps)
                       </div>
                       <div className="flex items-center gap-1">
                         <Users className="w-4 h-4" />
-                        <span>{treatment.specialists}</span>
+                        <span>Dr. {treatment.doctor}</span>
                       </div>
                     </div>
 

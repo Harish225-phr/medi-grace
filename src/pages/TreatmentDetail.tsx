@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { WordPressPost } from "@/types/treatment";
 import { 
   ArrowLeft, 
   Calendar, 
@@ -16,45 +17,23 @@ import {
 } from "lucide-react";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
-interface TreatmentPost {
-  id: number;
-  title: {
-    rendered: string;
-  };
-  content: {
-    rendered: string;
-  };
-  excerpt: {
-    rendered: string;
-  };
-  date: string;
-  author: number;
-  featured_media: number;
-  categories: number[];
-  tags: number[];
-  _embedded?: {
-    author?: Array<{
-      name: string;
-      description?: string;
-    }>;
-    "wp:featuredmedia"?: Array<{
-      source_url: string;
-      alt_text: string;
-    }>;
-    "wp:term"?: Array<Array<{
-      name: string;
-      taxonomy: string;
-    }>>;
-  };
-}
+
 
 const TreatmentDetail = () => {
   const { postId } = useParams<{ postId: string }>();
   const navigate = useNavigate();
   
-  const [treatmentPost, setTreatmentPost] = useState<TreatmentPost | null>(null);
+  const [treatmentPost, setTreatmentPost] = useState<WordPressPost | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+
+  // DEBUG: Log what we get from route params
+  console.log("=== ROUTE PARAMS DEBUG ===");
+  console.log("Raw postId from useParams:", postId);
+  console.log("PostId type:", typeof postId);
+  console.log("PostId length:", postId?.length);
+  console.log("Current window location:", window.location.href);
+  console.log("=== END ROUTE DEBUG ===");
 
   useEffect(() => {
     const fetchTreatmentData = async () => {
@@ -68,81 +47,54 @@ const TreatmentDetail = () => {
         setLoading(true);
         setError(null);
         
-        // Fetch treatments data from your API
-        const response = await fetch(`https://findskin.doctor/wp-json/wp/v2/pages/2466`);
+        // Try fetching as a post first, then as a page if it fails
+        let postData: WordPressPost | null = null;
+        let fetchError: string | null = null;
         
-        if (!response.ok) {
-          throw new Error("Failed to fetch treatments data");
-        }
-        
-        const pageData = await response.json();
-        const treatmentsJsonString = pageData?.acf?.treatments_json || '[]';
-        
-        let treatmentsData = [];
+        // First, try as a post
         try {
-          treatmentsData = JSON.parse(treatmentsJsonString);
-        } catch (parseError) {
-          console.error('Error parsing treatments JSON:', parseError);
-          treatmentsData = [];
-        }
-
-        // Find the specific treatment by post_id
-        const foundTreatment = treatmentsData.find((treatment: any) => 
-          treatment.post_id === parseInt(postId)
-        );
-
-        if (!foundTreatment) {
-          throw new Error("Treatment not found");
-        }
-
-        // Convert to expected format
-        const treatmentPost = {
-          id: foundTreatment.post_id,
-          title: { rendered: foundTreatment.title },
-          content: { 
-            rendered: `
-              <div class="treatment-detail">
-                <h2>About This Treatment</h2>
-                <p>${foundTreatment.description}</p>
-                
-                <h3>Treatment Benefits</h3>
-                <ul>
-                  <li>Professional medical care</li>
-                  <li>Experienced specialists</li>
-                  <li>Advanced treatment techniques</li>
-                  <li>Personalized treatment plans</li>
-                  <li>Safe and effective procedures</li>
-                </ul>
-
-                <h3>What to Expect</h3>
-                <p>Our expert medical team will provide you with comprehensive care tailored to your specific needs. We use the latest medical technology and evidence-based treatment approaches to ensure the best possible outcomes.</p>
-
-                <h3>Book Your Consultation</h3>
-                <p>Ready to start your treatment journey? Contact our medical team to schedule a consultation and learn more about how this treatment can benefit you.</p>
-              </div>
-            `
-          },
-          excerpt: { rendered: foundTreatment.description },
-          date: new Date().toISOString(),
-          author: 1,
-          featured_media: 0,
-          categories: [],
-          tags: [],
-          _embedded: {
-            author: [{ name: "findskin.doctor Medical Team" }],
-            "wp:featuredmedia": foundTreatment.image ? [{ 
-              source_url: foundTreatment.image,
-              alt_text: foundTreatment.title 
-            }] : [],
-            "wp:term": [
-              [{ name: "Medical Treatment", taxonomy: "category" }]
-            ]
+          const postResponse = await fetch(`https://findskin.doctor/wp-json/wp/v2/posts/${postId}?_embed`);
+          if (postResponse.ok) {
+            postData = await postResponse.json();
+          } else if (postResponse.status !== 404) {
+            throw new Error(`Post API error: ${postResponse.status}`);
           }
-        };
+        } catch (err) {
+          console.log('Post fetch failed, trying pages...', err);
+        }
         
-        setTreatmentPost(treatmentPost);
+        // If post fetch failed, try as a page
+        if (!postData) {
+          try {
+            const pageResponse = await fetch(`https://findskin.doctor/wp-json/wp/v2/pages/${postId}?_embed`);
+            if (pageResponse.ok) {
+              postData = await pageResponse.json();
+            } else if (pageResponse.status === 404) {
+              fetchError = "Treatment not found - this ID doesn't exist as either a post or page";
+            } else {
+              fetchError = `Page API error: ${pageResponse.status}`;
+            }
+          } catch (err) {
+            fetchError = `Failed to fetch from both posts and pages APIs: ${err}`;
+          }
+        }
+        
+        if (!postData) {
+          throw new Error(fetchError || "Treatment not found");
+        }
+        
+        setTreatmentPost(postData);
       } catch (err) {
+        console.error("=== TREATMENT DETAIL DEBUG INFO ===");
         console.error("Error fetching treatment:", err);
+        console.error("Post ID from URL params:", postId);
+        console.error("Post ID type:", typeof postId);
+        console.error("Current URL:", window.location.href);
+        console.error("Tried URLs:", [
+          `https://findskin.doctor/wp-json/wp/v2/posts/${postId}?_embed`,
+          `https://findskin.doctor/wp-json/wp/v2/pages/${postId}?_embed`
+        ]);
+        console.error("=== END DEBUG INFO ===");
         setError(err instanceof Error ? err.message : "Failed to load treatment details");
       } finally {
         setLoading(false);
